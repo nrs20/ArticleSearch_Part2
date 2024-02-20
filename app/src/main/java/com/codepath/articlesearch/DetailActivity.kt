@@ -18,19 +18,20 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
+        // TODO: Find the views for the screen
         mediaImageView = findViewById(R.id.mediaImage)
         titleTextView = findViewById(R.id.mediaTitle)
         bylineTextView = findViewById(R.id.mediaByline)
         abstractTextView = findViewById(R.id.mediaAbstract)
 
-        val article = intent.getSerializableExtra(ARTICLE_EXTRA) as Article
+        // TODO: Get the extra from the Intent
+        val article = intent.getSerializableExtra(ARTICLE_EXTRA) as DisplayArticle
 
-        // Set title and abstract information for the article
-        titleTextView.text = article.headline?.main
-        bylineTextView.text = article.byline?.original
+        // TODO: Set the title, byline, and abstract information from the article
+        titleTextView.text = article.headline
+        bylineTextView.text = article.byline
         abstractTextView.text = article.abstract
-
-        // Load the media image
+        // TODO: Load the media image
         Glide.with(this)
             .load(article.mediaImageUrl)
             .into(mediaImageView)
